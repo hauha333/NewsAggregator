@@ -1,12 +1,11 @@
 import type { NewsApiResponse } from "@/types";
 
-const API_KEY = import.meta.env.VITE_NEWS_API_KEY;
-const BASE_URL = "https://newsapi.org/v2";
+const BASE_URL = "/api/news";
 
 export async function fetchTopHeadlines(
   sources: string
 ): Promise<NewsApiResponse> {
-  const url = `${BASE_URL}/top-headlines?sources=${sources}&apiKey=${API_KEY}`;
+  const url = `${BASE_URL}?endpoint=top-headlines&sources=${sources}`;
 
   const response = await fetch(url);
 
@@ -22,7 +21,7 @@ export async function fetchEverything(
   sources: string,
   query?: string
 ): Promise<NewsApiResponse> {
-  let url = `${BASE_URL}/everything?sources=${sources}&sortBy=publishedAt&apiKey=${API_KEY}`;
+  let url = `${BASE_URL}?endpoint=everything&sources=${sources}&sortBy=publishedAt`;
 
   if (query) {
     url += `&q=${encodeURIComponent(query)}`;
