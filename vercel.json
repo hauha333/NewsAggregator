@@ -1,3 +1,0 @@
-{
-  "rewrites": [{ "source": "/api/news", "destination": "/api/news.ts" }]
-}
